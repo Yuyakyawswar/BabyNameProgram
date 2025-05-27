@@ -25,9 +25,27 @@ public class Main {
             e.printStackTrace();
         }
     }
+
+    private void menu(){
+        System.out.println("BABY NAME PROGRAM");
+        System.out.println("--------------------------------------");
+        System.out.println("1) -> Adding One Baby Name");
+        System.out.println("2) -> Adding Baby Name by Year");
+        System.out.println("3) -> Editing One Baby Name");
+        System.out.println("4) -> Deleting One Baby Name");
+        System.out.println("5) -> Deleting Baby Name by Year");
+        System.out.println("6) -> Reporting Baby Name by Year");
+        System.out.println("7) -> Reporting Top 10 Baby Names");
+        System.out.println("8) -> Existing Program");
+        System.out.println("--------------------------------------");
+        System.out.print("Choose Menu between 1 and 8");
+    }
+
+
     public static void main(String[] args) {
         Main main = new Main();
         main.readData("data/Baby_Names.csv");
-        System.out.println(main.nameLinkedList.getLast());
+        System.out.println("Total Name List : " + main.nameLinkedList.size());
+        main.menu();
     }
 }
