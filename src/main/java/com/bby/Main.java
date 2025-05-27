@@ -4,6 +4,7 @@ import com.opencsv.CSVReader;
 
 import java.io.FileReader;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 public class Main {
     private  LinkedList<BabyName> nameLinkedList;
@@ -38,14 +39,54 @@ public class Main {
         System.out.println("7) -> Reporting Top 10 Baby Names");
         System.out.println("8) -> Existing Program");
         System.out.println("--------------------------------------");
-        System.out.print("Choose Menu between 1 and 8");
+        System.out.print("Choose Menu between 1 and 8 :  ");
     }
 
+    private boolean validMenuNo(String input){
+        if(!input.matches("[1-8]")){
+            System.out.println("You must enter menu number between 1 and 8");
+            return false;
+        }
+        return true;
+    }
 
     public static void main(String[] args) {
         Main main = new Main();
         main.readData("data/Baby_Names.csv");
         System.out.println("Total Name List : " + main.nameLinkedList.size());
-        main.menu();
+
+        Scanner sc = new Scanner(System.in);
+        while (true){
+            main.menu();
+            String input = sc.nextLine();
+            if(main.validMenuNo(input)){
+                switch (input){
+                    case "1":
+                        System.out.println("Adding one baby name");
+                        break;
+                    case "2":
+                        System.out.println("Adding Baby Name by Year");
+                        break;
+                    case "3":
+                        System.out.println("Editing One Baby Name");
+                        break;
+                    case "4":
+                        System.out.println("Deleting One Baby Name");
+                        break;
+                    case "5":
+                        System.out.println("Deleting Baby Name by Year");
+                        break;
+                    case "6":
+                        System.out.println("Reporting Baby Name by Year");
+                        break;
+                    case "7":
+                        System.out.println("Reporting Top 10 Baby Names");
+                        break;
+                    default:
+                        System.out.println("Exit Program");
+                    System.exit(0);
+                }
+            }
+        }
     }
 }
