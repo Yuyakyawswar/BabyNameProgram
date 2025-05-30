@@ -9,6 +9,8 @@ public class AddingBbyName {
 
     public AddingBbyName(LinkedList<BabyName> nameLinkedList) {
         this.nameLinkedList = nameLinkedList;
+        System.out.println("Adding new baby name");
+        System.out.println("---------------------");
     }
 
     public void addName(){
@@ -19,6 +21,12 @@ public class AddingBbyName {
             addName();
         }
         String count = dwv.getCount();
+        nameLinkedList.add(new BabyName(name,gender, Integer.parseInt(year),
+                0, Integer.parseInt(count)));
+        dwv.ranking(nameLinkedList,gender,year);
+        dwv.write(nameLinkedList);
+
+        System.out.println("Successfully added a new baby name");
     }
 
 }

@@ -15,6 +15,10 @@ public class BabyName {
         this.count = count;
     }
 
+    public void setRank(int rank) {
+        this.rank = rank;
+    }
+
     public String getName() {
         return name;
     }

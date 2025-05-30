@@ -1,7 +1,8 @@
 package com.bby;
 
-import java.util.LinkedList;
-import java.util.Scanner;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.util.*;
 
 public class DataWriteValidation {
     private Scanner sc = new Scanner(System.in);
@@ -47,12 +48,55 @@ public class DataWriteValidation {
     }
     protected boolean validName(String name, String gender, String year, LinkedList<BabyName> nameLinkedList){
         for(BabyName b : nameLinkedList){
-            if(b.getName().equals(name) && b.getGender().equals(gender) && b.getYear() == Integer.parseInt(year)){
+            if(b.getName().equals(name) && b.getGender().equals(gender)
+                    && b.getYear() == Integer.parseInt(year)){
                 System.out.println("Name is duplicate");
                 return false;
             }
         }
         return true;
+    }
+
+    public void ranking(LinkedList<BabyName> nameLinkedList, String gender, String year){
+        LinkedList<BabyName> rankList = new LinkedList<>();
+        for(BabyName b: nameLinkedList){
+            if(b.getGender().equals(gender)
+                    && b.getYear() == Integer.parseInt(year)){
+                rankList.add(b);
+            }
+        }
+        nameLinkedList.removeAll(rankList);
+        rankList.sort(
+                Collections.reverseOrder(
+                        Comparator.comparing(BabyName::getCount)
+                ));
+        int rank = 0;
+        int preCount = 0;
+
+        for(BabyName b: rankList){
+            if(b.getCount() != preCount){
+                rank++;
+            }
+            b.setRank(rank);
+            preCount = b.getCount();
+        }
+        nameLinkedList.addAll(rankList);
+    }
+
+    public void write(LinkedList<BabyName> nameLinkedList){
+        try{
+            PrintWriter pw = new PrintWriter(
+                    new FileWriter("data/Baby_Names.csv", false));
+            pw.println("name,gender,year,rank,count");
+            for(BabyName b: nameLinkedList){
+                pw.println(b.getName()+","+ b.getGender() +","+
+                        b.getYear()+","+ b.getRank()+","+ b.getCount());
+            }
+
+            pw.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 }

@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Main {
-    private  LinkedList<BabyName> nameLinkedList;
+    private LinkedList<BabyName> nameLinkedList;
 
     public  void readData(String filepath){
         nameLinkedList = new LinkedList<>();
@@ -62,7 +62,8 @@ public class Main {
             if(main.validMenuNo(input)){
                 switch (input){
                     case "1":
-                        System.out.println("Adding one baby name");
+                        AddingBbyName addingBbyName = new AddingBbyName(main.nameLinkedList);
+                        addingBbyName.addName();
                         break;
                     case "2":
                         System.out.println("Adding Baby Name by Year");
