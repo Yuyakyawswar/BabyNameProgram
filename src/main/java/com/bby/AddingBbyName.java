@@ -17,10 +17,13 @@ public class AddingBbyName {
         String name = dwv.getName();
         String gender = dwv.getGender();
         String year = dwv.getYear();
-        if(!dwv.validName(name,gender,year,nameLinkedList)){
-            addName();
+        while (!dwv.validName(name,gender,year,nameLinkedList)){
+             name = dwv.getName();
+             gender = dwv.getGender();
+             year = dwv.getYear();
         }
         String count = dwv.getCount();
+
         nameLinkedList.add(new BabyName(name,gender, Integer.parseInt(year),
                 0, Integer.parseInt(count)));
         dwv.ranking(nameLinkedList,gender,year);
