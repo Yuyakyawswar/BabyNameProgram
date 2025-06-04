@@ -1,5 +1,6 @@
 package com.bby;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.*;
@@ -46,11 +47,23 @@ public class DataWriteValidation {
         }
         return count;
     }
-    protected boolean validName(String name, String gender, String year, LinkedList<BabyName> nameLinkedList){
+
+    protected boolean validName(String name, String gender, String year,
+                                LinkedList<BabyName> nameLinkedList){
         for(BabyName b : nameLinkedList){
             if(b.getName().equals(name) && b.getGender().equals(gender)
                     && b.getYear() == Integer.parseInt(year)){
                 System.out.println("Name is duplicate");
+                return false;
+            }
+        }
+        return true;
+    }
+
+    protected boolean validYear(String year, LinkedList<BabyName> nameLinkedList){
+        for(BabyName b: nameLinkedList){
+            if(b.getYear() == Integer.parseInt(year)){
+                System.out.println("Year already exist");
                 return false;
             }
         }
@@ -97,6 +110,21 @@ public class DataWriteValidation {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    public String getFilePath(){
+        System.out.print("Enter file path : ");
+        String filepath = sc.nextLine();
+        while (filepath.isEmpty()){
+            System.out.println("File must not be e");
+            System.out.print("Enter file path");
+            filepath = sc.nextLine();
+        }
+        if(!new File(filepath).exists()){
+            System.out.println("File does not exist");
+            filepath = getFilePath();
+        }
+        return filepath;
     }
 
 }

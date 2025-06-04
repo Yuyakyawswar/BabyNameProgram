@@ -66,7 +66,8 @@ public class Main {
                         addingBbyName.addName();
                         break;
                     case "2":
-                        System.out.println("Adding Baby Name by Year");
+                        AddingBbyNameByYear adny = new AddingBbyNameByYear(main.nameLinkedList);
+                        adny.addName();
                         break;
                     case "3":
                         System.out.println("Editing One Baby Name");
