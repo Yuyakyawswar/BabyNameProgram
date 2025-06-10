@@ -74,7 +74,8 @@ public class Main {
                         editBbyName.editName();
                         break;
                     case "4":
-                        System.out.println("Deleting One Baby Name");
+                        DeleteBbyName deleteBbyName = new DeleteBbyName(main.nameLinkedList);
+                        deleteBbyName.delete();
                         break;
                     case "5":
                         System.out.println("Deleting Baby Name by Year");
