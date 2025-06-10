@@ -60,6 +60,20 @@ public class DataWriteValidation {
         return true;
     }
 
+    protected boolean validName(String name, String gender, String year,
+                                LinkedList<BabyName> nameLinkedList,int index){
+        int i = 0;
+        for(BabyName b : nameLinkedList){
+            if(b.getName().equals(name) && b.getGender().equals(gender)
+                    && b.getYear() == Integer.parseInt(year) && i != index){
+                System.out.println("Name is duplicate");
+                return false;
+            }
+            i++;
+        }
+        return true;
+    }
+
     protected boolean validYear(String year, LinkedList<BabyName> nameLinkedList){
         for(BabyName b: nameLinkedList){
             if(b.getYear() == Integer.parseInt(year)){
@@ -68,6 +82,21 @@ public class DataWriteValidation {
             }
         }
         return true;
+    }
+
+    protected int searchName(String name, String gender, String year,
+                                LinkedList<BabyName> nameLinkedList){
+        int index = 0;
+        for(BabyName b : nameLinkedList){
+            if(b.getName().equals(name) && b.getGender().equals(gender)
+                    && b.getYear() == Integer.parseInt(year)){
+                System.out.println("Baby name is found");
+                return index;
+            }
+            index++;
+        }
+        System.out.println("Baby name is not found!!");
+        return -1;
     }
 
     public void ranking(LinkedList<BabyName> nameLinkedList, String gender, String year){

@@ -70,7 +70,8 @@ public class Main {
                         adny.addName();
                         break;
                     case "3":
-                        System.out.println("Editing One Baby Name");
+                        EditBbyName editBbyName = new EditBbyName(main.nameLinkedList);
+                        editBbyName.editName();
                         break;
                     case "4":
                         System.out.println("Deleting One Baby Name");
