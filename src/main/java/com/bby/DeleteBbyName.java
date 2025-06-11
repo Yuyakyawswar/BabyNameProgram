@@ -27,10 +27,12 @@ public class DeleteBbyName {
             searchYear = dwv.getYear();
         }
 
+        if(!dwv.confirmDelete()){
+            return;
+        }
         nameLinkedList.remove(index);
         dwv.ranking(nameLinkedList,searchGender,searchYear);
         dwv.write(nameLinkedList);
-
         System.out.println("Successfully deleted a new baby name");
     }
 

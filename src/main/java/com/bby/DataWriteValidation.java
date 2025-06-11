@@ -156,4 +156,14 @@ public class DataWriteValidation {
         return filepath;
     }
 
+    protected boolean confirmDelete(){
+        System.out.println("Are you sure want to delete? (Y / N)");
+        String confirm = sc.nextLine();
+        if(!confirm.toLowerCase().matches("[y|n]")){
+            System.out.println("Enter only Y or N");
+            confirmDelete();
+        }
+        return confirm.equalsIgnoreCase("y");
+    }
+
 }
