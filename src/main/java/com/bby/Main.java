@@ -82,7 +82,8 @@ public class Main {
                         deleteBbyNamebyYear.delete();
                         break;
                     case "6":
-                        System.out.println("Reporting Baby Name by Year");
+                        BbyNameByYearRpt rpt = new BbyNameByYearRpt(main.nameLinkedList);
+                        rpt.reportName();
                         break;
                     case "7":
                         System.out.println("Reporting Top 10 Baby Names");
