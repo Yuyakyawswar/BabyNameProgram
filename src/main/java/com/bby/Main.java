@@ -78,7 +78,8 @@ public class Main {
                         deleteBbyName.delete();
                         break;
                     case "5":
-                        System.out.println("Deleting Baby Name by Year");
+                        DeleteBbyNamebyYear deleteBbyNamebyYear = new DeleteBbyNamebyYear(main.nameLinkedList);
+                        deleteBbyNamebyYear.delete();
                         break;
                     case "6":
                         System.out.println("Reporting Baby Name by Year");
