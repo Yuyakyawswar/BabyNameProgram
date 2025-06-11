@@ -86,7 +86,8 @@ public class Main {
                         rpt.reportName();
                         break;
                     case "7":
-                        System.out.println("Reporting Top 10 Baby Names");
+                        Top10BbyNameByYearRpt top10BbyNameByYearRpt = new Top10BbyNameByYearRpt(main.nameLinkedList);
+                        top10BbyNameByYearRpt.reportName();
                         break;
                     default:
                         System.out.println("Exit Program");
