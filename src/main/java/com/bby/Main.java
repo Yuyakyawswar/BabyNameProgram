@@ -78,13 +78,16 @@ public class Main {
                         deleteBbyName.delete();
                         break;
                     case "5":
-                        System.out.println("Deleting Baby Name by Year");
+                        DeleteBbyNamebyYear deleteBbyNamebyYear = new DeleteBbyNamebyYear(main.nameLinkedList);
+                        deleteBbyNamebyYear.delete();
                         break;
                     case "6":
-                        System.out.println("Reporting Baby Name by Year");
+                        BbyNameByYearRpt rpt = new BbyNameByYearRpt(main.nameLinkedList);
+                        rpt.reportName();
                         break;
                     case "7":
-                        System.out.println("Reporting Top 10 Baby Names");
+                        Top10BbyNameByYearRpt top10BbyNameByYearRpt = new Top10BbyNameByYearRpt(main.nameLinkedList);
+                        top10BbyNameByYearRpt.reportName();
                         break;
                     default:
                         System.out.println("Exit Program");
