@@ -145,7 +145,7 @@ public class DataWriteValidation {
         System.out.print("Enter file path : ");
         String filepath = sc.nextLine();
         while (filepath.isEmpty()){
-            System.out.println("File must not be e");
+            System.out.println("File must not be empty");
             System.out.print("Enter file path");
             filepath = sc.nextLine();
         }

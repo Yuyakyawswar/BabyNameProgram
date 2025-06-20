@@ -8,7 +8,7 @@ public class DeleteBbyName {
 
     public DeleteBbyName(LinkedList<BabyName> nameLinkedList) {
         this.nameLinkedList = nameLinkedList;
-        System.out.println("Delete new baby name");
+        System.out.println("Delete baby name");
         System.out.println("---------------------");
     }
 
